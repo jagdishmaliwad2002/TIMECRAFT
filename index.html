@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIMECRAFT - Luxury Watches</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-dark: #111111;
+            --bg-darker: #0a0a0a;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --text-main: #222222;
+            --text-light: #ffffff;
+            --text-muted: #777777;
+            --gold: #cfa469;
+            --gold-hover: #b89055;
+            --border-color: #e0e0e0;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* --- TOP ANNOUNCEMENT BAR --- */
+        .top-bar {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-size: 0.75rem;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar i {
+            margin-right: 5px;
+            color: var(--gold);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+        }
+
+        .logo span {
+            font-family: var(--font-sans);
+            font-size: 0.5rem;
+            letter-spacing: 4px;
+            margin-top: 2px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.1rem;
+        }
+
+        .nav-icons i {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-icons i:hover {
+            color: var(--gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--text-main);
+            color: var(--text-light);
+            font-size: 0.6rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            /* Added fallback background color (--bg-dark) in case image takes time to load */
+            background-color: var(--bg-dark); 
+            /* Optimized image URL: WebP format, compressed quality, limited width */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1547996160-81dfa63595ab?auto=format&fit=crop&w=1200&q=60&fm=webp');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 400px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--text-light);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-light);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--text-main);
+        }
+
+        .hero-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 5%;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: var(--gold);
+        }
+
+        /* --- USP BAR --- */
+        .usp-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: var(--bg-white);
+            padding: 30px 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .usp-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .usp-item:last-child {
+            border-right: none;
+        }
+
+        .usp-item i {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .usp-text h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .usp-text p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            padding-top: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .view-all {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .view-all:hover {
+            color: var(--gold);
+        }
+
+        /* --- CATEGORY GRID --- */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            padding-bottom: 60px;
+        }
+
+        .category-card {
+            position: relative;
+            background-color: var(--bg-dark);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .category-card:hover img {
+            opacity: 0.4;
+            transform: scale(1.05);
+        }
+
+        .category-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--text-light);
+            z-index: 2;
+        }
+
+        .category-info h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .category-info span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        /* --- PRODUCT GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        .product-card {
+            position: relative;
+            text-align: center;
+        }
+
+        .product-img {
+            background-color: var(--bg-light);
+            padding: 20px;
+            position: relative;
+            margin-bottom: 15px;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            max-height: 100%;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .wishlist-btn:hover {
+            color: #e74c3c;
+        }
+
+        .product-title {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-price {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .product-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .product-rating .stars {
+            color: var(--gold);
+        }
+
+        /* --- PROMO BANNERS --- */
+        .promo-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        .promo-banner {
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-dark {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .promo-light {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+
+        .promo-content {
+            flex: 1;
+            z-index: 2;
+            max-width: 60%;
+        }
+
+        .promo-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--gold);
+        }
+
+        .promo-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .promo-desc {
+            font-size: 0.8rem;
+            margin-bottom: 25px;
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .promo-img {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 50%;
+            z-index: 1;
+        }
+
+        .promo-img img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .btn-dark {
+            background-color: var(--text-main);
+            color: var(--text-light);
+        }
+
+        .btn-dark:hover {
+            background-color: #000;
+        }
+
+        /* --- NEWSLETTER --- */
+        .newsletter {
+            background-color: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .newsletter-text h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .newsletter-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            font-family: var(--font-sans);
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 0 30px;
+            background-color: var(--gold);
+            color: var(--text-light);
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-darker);
+            color: var(--text-light);
+            padding: 60px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 250px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-light);
+        }
+
+        .footer-trust {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .trust-item h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .trust-item p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .category-grid, .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            .usp-bar {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .usp-item {
+                border-right: none;
+                justify-content: flex-start;
+            }
+            .promo-section {
+                grid-template-columns: 1fr;
+            }
+            .newsletter {
+                flex-direction: column;
+                text-align: center;
+            }
+            .newsletter-form {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .category-grid, .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid, .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form input {
+                border-right: 1px solid var(--border-color);
+                border-bottom: none;
+            }
+            .newsletter-form button {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span><i class="fa-solid fa-truck"></i> Free shipping on orders over $75</span>
+        </div>
+        <div class="top-bar-right">
+            <span><i class="fa-solid fa-tag"></i> 10% off your first order! Code: TIME10</span>
+            <span><i class="fa-solid fa-circle-question"></i> Help & FAQ</span>
+            <span><i class="fa-solid fa-box"></i> Track Order</span>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                TIMECRAFT
+                <span>WATCHES</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">New Arrivals</a>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Collections <i class="fa-solid fa-chevron-down" style="font-size: 0.6rem;"></i></a>
+                <a href="#">Accessories</a>
+                <a href="#">Sale</a>
+            </nav>
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-regular fa-heart"></i>
+                <div class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-subtitle">New Collection</span>
+                <h1 class="hero-title">
+                    PRECISION.
+                    <span>CRAFTED FOR TIME.</span>
+                </h1>
+                <p class="hero-desc">Where timeless design meets modern performance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-gold">Shop New In</button>
+                    <button class="btn btn-outline">Explore Collections</button>
+                </div>
+            </div>
+            <div class="hero-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </section>
+
+        <!-- USP Bar -->
+        <section class="usp-bar">
+            <div class="usp-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <div class="usp-text">
+                    <h4>Free Shipping</h4>
+                    <p>On orders over $75</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <i class="fa-solid fa-rotate-left"></i>
+                <div class="usp-text">
+                    <h4>Easy Returns</h4>
+                    <p>30-day hassle free returns</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div class="usp-text">
+                    <h4>Secure Payment</h4>
+                    <p>100% secure checkout</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <i class="fa-solid fa-headset"></i>
+                <div class="usp-text">
+                    <h4>Customer Support</h4>
+                    <p>We're here to help</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop By Category -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop By Category</h2>
+                <a href="#" class="view-all">View All &rarr;</a>
+            </div>
+            <div class="category-grid">
+                <!-- Added loading="lazy" to speed up initial load. Added WebP and w=400 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Men's Watches" loading="lazy">
+                    <div class="category-info">
+                        <h3>Men's Watches</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Women's Watches" loading="lazy">
+                    <div class="category-info">
+                        <h3>Women's Watches</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Sport Watches" loading="lazy">
+                    <div class="category-info">
+                        <h3>Sport Watches</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Dress Watches" loading="lazy">
+                    <div class="category-info">
+                        <h3>Dress Watches</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Smart Watches" loading="lazy">
+                    <div class="category-info">
+                        <h3>Smart Watches</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Accessories" loading="lazy">
+                    <div class="category-info">
+                        <h3>Accessories</h3>
+                        <span>Shop Now</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">Best Sellers</h2>
+                <a href="#" class="view-all">View All &rarr;</a>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Aqua Pro Diver" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Aqua Pro Diver</h3>
+                    <p class="product-price">$299.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>(128)</span>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Chrono Black" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Chrono Black</h3>
+                    <p class="product-price">$349.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </span>
+                        <span>(96)</span>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Heritage Classic" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Heritage Classic</h3>
+                    <p class="product-price">$279.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>(214)</span>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Automatic Skeleton" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Automatic Skeleton</h3>
+                    <p class="product-price">$399.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>(112)</span>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Forest GMT" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Forest GMT</h3>
+                    <p class="product-price">$329.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </span>
+                        <span>(87)</span>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=300&q=60&fm=webp" alt="Minimalist Mesh" loading="lazy">
+                    </div>
+                    <h3 class="product-title">Minimalist Mesh</h3>
+                    <p class="product-price">$199.00</p>
+                    <div class="product-rating">
+                        <span class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </span>
+                        <span>(166)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banners -->
+        <section class="container promo-section">
+            <div class="promo-banner promo-dark">
+                <div class="promo-content">
+                    <span class="promo-tag">Limited Edition</span>
+                    <h2 class="promo-title">Built In<br>Limited Numbers.</h2>
+                    <p class="promo-desc">Exclusive designs for those who value individuality.</p>
+                    <button class="btn btn-gold">Discover Now</button>
+                </div>
+                <div class="promo-img">
+                    <img src="https://images.unsplash.com/photo-1547996160-81dfa63595ab?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Limited Edition Watch" style="border-radius: 50%; opacity: 0.8;" loading="lazy">
+                </div>
+            </div>
+            <div class="promo-banner promo-light">
+                <div class="promo-content">
+                    <span class="promo-tag">Timecraft Club</span>
+                    <h2 class="promo-title">More Rewards.<br>More Timeless Benefits.</h2>
+                    <p class="promo-desc">Join now and enjoy exclusive perks, early access, and special offers.</p>
+                    <button class="btn btn-dark">Join Now</button>
+                </div>
+                <div class="promo-img">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=60&fm=webp" alt="Timecraft Club Card" style="border-radius: 10px; transform: rotate(-15deg);" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="newsletter-text">
+                <h3>Stay In Time</h3>
+                <p>Subscribe for new arrivals, offers and updates.</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>TIMECRAFT</h3>
+                <p>Timeless design. Trusted performance. Crafted to be with you, always.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Craftsmanship</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-trust">
+                <div class="trust-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <div>
+                        <h5>Secure Payment</h5>
+                        <p>Visa, Mastercard, PayPal and more</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <h5>Worldwide Shipping</h5>
+                        <p>We ship to over 100+ countries worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TIMECRAFT WATCHES. ALL RIGHTS RESERVED.</p>
+            <div class="payment-icons">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-brands fa-cc-apple-pay"></i>
+                <i class="fa-brands fa-google-pay"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
